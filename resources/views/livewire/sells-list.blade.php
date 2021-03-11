@@ -19,6 +19,7 @@
                     <td>{{ $user->name }}</td>
                     <td ><a class="bg-gray-400 border-2 border-gray-600 rounded w-20 h-8 mx-1" href="{{ route('users.edit', $user) }}">Editar</a></td>
                     <td ><a class="bg-gray-400 border-2 border-gray-600 rounded w-20 h-8 mx-1" href="{{ route('users.show', $user) }}">Saldo</a></td>
+                    <td ><a class="bg-gray-400 border-2 border-gray-600 rounded w-20 h-8 mx-1" href="{{ route('users.destroy', $user) }}">Eliminar</a></td>
                 </tr>
                 @endforeach
             </tbody>

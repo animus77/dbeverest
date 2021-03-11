@@ -11,7 +11,7 @@
 <body class="bg-gray-200 h-scren">
     <header class="bg-white shadow-md">
         <ol class="flex flex-row justify-between mx-2 py-2 text-xl">
-            <li>Bienvenido, Jorge Lopez</li>
+            <li>Bienvenido, {{ Auth::user()->name }}</li>
             <li><a href="{{ url('dashboard') }}">Menu</a></li>
         </ol>
     </header>

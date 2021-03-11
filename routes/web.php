@@ -5,7 +5,9 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SellsController; 
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\RoleController; 
-use App\Http\Controllers\SuppliesController; 
+use App\Http\Controllers\SuppliesController;
+
+use App\Models\sells;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,42 @@ use App\Http\Controllers\SuppliesController;
 */
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::get('testing', function(){
+
+    $sells = sells::all()->find(1);
+
+    $date = $sells->fecha;
+    //var_dump ($date);
+
+    $fecha1 = date_create($date);
+    var_dump($fecha1);
+    echo "<br>";
+    $fecha2 = date_create("now");
+    var_dump($fecha2);
+    echo "<br>";
+
+    $diff = date_diff($fecha1, $fecha2);
+    
+    // $valor = $diff->format("%R%a"); 
+    $valor = $diff->format("%a"); 
+    echo $valor;
+    echo "<br>";
+    var_dump($valor);
+    echo "<br>";
+
+    $val = intval($valor);
+    var_dump($val);
+
+    $dias = date("j");
+    echo $dias;
+    echo "<br>";
+
+    $dates=date_create("2013-03-15");
+    $print = date_format($dates,"j");
+    echo $print;
+    var_dump(strval($print));
+});
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

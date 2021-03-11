@@ -25,7 +25,6 @@
                 <td class="text-center">{{ $sell->cantidad }}</td>
                 <td class="text-center">{{ $sell->producto }}</td>
                 <td class="text-center">{{ $sell->impPagado }}</td>
-                <td class="text-center">{{ $sell->month() }}</td>
             </tr>
             @endforeach
         </tbody>
@@ -33,12 +32,12 @@
 </section>
 <section class="bg-white shadow rounded-md p-2 m-4">
     <h1 class="text-xl text-center">Venta del dia</h1>
-    <ol>
+    <ol class="p-2">
         <li>Venta total de agua: <strong>{{ $cantidadA }}</strong></li>
         <li>Venta total de hielo: <strong>{{ $cantidadH }}</strong></li>
-        <li>Pagos de agua: <strong>{{ $pagadoA }}</strong></li>
-        <li>Pagos de hielo: <strong>{{ $pagadoH }}</strong></li>
-        <li>Pagos del dia: <strong>{{ $pagos }}</strong></li>
+        <li>Pagos de agua: <strong>${{ $pagadoA }}</strong></li>
+        <li>Pagos de hielo: <strong>${{ $pagadoH }}</strong></li>
+        <li>Pagos del dia: <strong>${{ $pagos }}</strong></li>
     </ol>
 </section>
 

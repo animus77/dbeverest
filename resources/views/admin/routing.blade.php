@@ -33,5 +33,26 @@
             <li>Pagos realizado: <strong>${{ $pagos }}</strong></li>
         </ol>
     </section>
+    <section class="bg-white shadow rounded-md">
+        <h1 class="text-xl text-center bg-gray-400 rounded-t-md p-1">Clientes para visitar</h1>
+        <table>
+            <tbody>
+            @foreach($sells as $sell)
+            <tr>
+            @if($sell->month() <= 7)
+                <td>{{ $sell->user_id}}</td>
+                <td>{{ $sell->name}}</td>
+                <td>{{ $sell->month()}}</td>
+            @endif
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+        <ol class="p-2">
+            <li>falta visitar: nombre cliente</li>
+            <li>falta visitar: nombre cliente</li>
+            <li>falta visitar: nombre cliente</li>
+        </ol>
+    </section>
 </div>
 @endsection()

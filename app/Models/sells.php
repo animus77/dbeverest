@@ -26,6 +26,22 @@ class sells extends Model
     public function month()
     {
         $date = $this->fecha;
-        return $date;
+        $fecha1 = date_create($date);
+        $fecha2 = date_create("now");
+
+        $diff = date_diff($fecha1, $fecha2);
+        $valor = $diff->format("%a"); 
+        $number = intval($valor);
+        return $number;
+    }
+
+    public function setdiaAttribute($value){
+        $day = $this->fecha;
+
+        $dates = date_create($day);
+        $print = date_format($dates,"j");
+
+        $this->attributes['dia'] = strval($print);
+
     }
 }

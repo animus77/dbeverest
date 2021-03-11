@@ -76,7 +76,6 @@ class SellsController extends Controller
         $request->validate([
             'ref' => ['required', 'numeric'],
             'fecha' => ['required', 'date'],
-            'dia' => ['required', 'numeric'],
             'cantidad' => ['required', 'numeric'],
             'impPagado' => ['required', 'numeric'],
             'impDebe' => ['required', 'numeric'],
@@ -87,7 +86,7 @@ class SellsController extends Controller
             //informacion de la tabla y formulario
             'user_id' => $request->ref,
             'fecha' => $request->fecha,
-            'dia' => $request->dia,
+            'dia' => $request->fecha,
             'cantidad' => $request->cantidad,
             'precio' => $request->precio,
             'impPagado' => $request->impPagado,

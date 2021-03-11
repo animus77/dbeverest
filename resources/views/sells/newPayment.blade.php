@@ -5,9 +5,6 @@
     <form action="{{ route('sells.store') }}" method="POST" class="flex flex-col m-4 p-4">
         <label for="" class="mx-4">Fecha</label>
         <input type="date" name="fecha" placeholder="Fecha" class="border-2 border-gray-400 rounded mb-2 focus:shadow-md">
-
-        <label for="" class="mx-4">Dia</label>
-        <input type="number" name="dia" placeholder="Dia del mes" class="border-2 border-gray-400 rounded mb-2 focus:shadow-md">
         
         <label for="" class="mx-4">Referencia</label>
         <input type="search" class="border-2 border-gray-400 rounded mb-2" name="ref" placeholder="Referencia" list="listareferencia">
