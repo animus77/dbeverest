@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\sellsRequest;
 use App\Models\Sells;
 use App\Models\User;
 
@@ -70,18 +71,9 @@ class SellsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(sellsRequest $request)
     {
-        //informacion que viene del formulari
-        $request->validate([
-            'ref' => ['required', 'numeric'],
-            'fecha' => ['required', 'date'],
-            'cantidad' => ['required', 'numeric'],
-            'impPagado' => ['required', 'numeric'],
-            'impDebe' => ['required', 'numeric'],
-            'producto' => ['required', 'string']
-        ]);
-
+        //informacion que viene del formulario
         Sells::create([
             //informacion de la tabla y formulario
             'user_id' => $request->ref,
@@ -126,9 +118,9 @@ class SellsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Sells $sell)
     {
-        //
+        return view('sells.edit', compact('sell'));
     }
 
     /**
@@ -140,7 +132,7 @@ class SellsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

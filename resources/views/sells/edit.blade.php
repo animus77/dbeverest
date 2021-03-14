@@ -7,7 +7,7 @@
         <input type="date" name="fecha" placeholder="Fecha" class="border-2 border-gray-400 rounded mb-2 focus:shadow-md">
         
         <label for="" class="mx-4">Referencia</label>
-        <input type="search" class="border-2 border-gray-400 rounded mb-2" name="ref" placeholder="Referencia" list="listareferencia">
+        <input type="text" class="border-2 border-gray-400 rounded mb-2" name="ref" placeholder="Referencia" list="listareferencia">
         
         <label for="" class="mx-4">Cantidad</label>
         <input type="number" class="border-2 border-gray-400 rounded mb-2" name="cantidad" placeholder="Cantidad">
@@ -35,9 +35,5 @@
         <input type="submit" class="bg-gray-400 border-2 border-gray-600 rounded w-20" value="Guardar">
     </form>
 </section>
-    <datalist id="listareferencia">
-        @foreach($users as $user)
-        <option value="{{$user->id}}">{{$user->name}}</option>
-        @endforeach
-    </datalist>
+
 @endsection()

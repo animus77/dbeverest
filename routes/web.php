@@ -6,6 +6,7 @@ use App\Http\Controllers\SellsController;
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\RoleController; 
 use App\Http\Controllers\SuppliesController;
+use App\Http\Controllers\PromotionsController;
 
 use App\Models\sells;
 
@@ -69,7 +70,7 @@ Route::middleware('auth')->group(function(){
     Route::get('routing', [PageController::class, 'routing'])
         ->middleware('permission:routing');
         
-    Route::get('route', [PageController::class, 'routingGuest'])
+    Route::get('route/{route}', [PageController::class, 'routingGuest'])
         ->middleware('permission:route');
 
     //roles
@@ -113,7 +114,7 @@ Route::middleware('auth')->group(function(){
     Route::delete('sell/destroy/{sell}', [SellsController::class, 'destroy'])->name('sells.destroy')
         ->middleware('permission:sells.destroy');
     
-    Route::get('sell/edit/{sell}', [SellsController::class, 'edit'])->name('sells.edit')
+    Route::get('sell/{sell}', [SellsController::class, 'edit'])->name('sells.edit')
         ->middleware('permission:sells.edit');
 
     //users
@@ -158,4 +159,26 @@ Route::middleware('auth')->group(function(){
     
     Route::get('supplies/{supplie}', [SuppliesController::class, 'edit'])->name('supplies.edit')
         ->middleware('permission:supplies.edit');
+    
+    //promociones
+    Route::post('promotions/store', [promotionsController::class, 'store'])->name('promotions.store')
+        ->middleware('permission:promotions.create');
+
+    Route::get('promotions', [promotionsController::class, 'index'])->name('promotions.index')
+        ->middleware('permission:promotions.index');
+    
+    Route::get('promotions/create', [promotionsController::class, 'create'])->name('promotions.create')
+        ->middleware('permission:promotions.create');
+    
+    Route::put('promotions/{promotion}', [promotionsController::class, 'update'])->name('promotions.update')
+        ->middleware('permission:promotions.edit');
+    
+    Route::get('promotions/show', [promotionsController::class, 'show'])->name('promotions.show')
+        ->middleware('permission:promotions.show');
+    
+    Route::delete('promotions/{promotion}', [promotionsController::class, 'destroy'])->name('promotions.destroy')
+        ->middleware('permission:promotions.destroy');
+    
+    Route::get('promotions/{promotion}', [promotionsController::class, 'edit'])->name('promotions.edit')
+        ->middleware('permission:promotions.edit');
 });

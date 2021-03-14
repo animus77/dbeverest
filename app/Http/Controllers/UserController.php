@@ -49,8 +49,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        
+    { 
         $paid = Sells::where('user_id', $id)
             ->where('producto', 'pago')
             ->sum('impPagado');

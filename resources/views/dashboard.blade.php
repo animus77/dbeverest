@@ -16,7 +16,12 @@
                     @endcan
                     @can('users.show')
                     <li class="py-1">
-                        <a href="#" class="ml-4 text-xl text-gray-700 font-semibold underline">Mis compras</a>
+                        <a href="{{ url('route', Auth::user()->id) }}" class="ml-4 text-xl text-gray-700 font-semibold underline">Mis compras</a>
+                    </li>
+                    @endcan
+                    @can('promotions.index')
+                    <li class="py-1">
+                        <a href="{{ route('promotions.index') }}" class="ml-4 text-xl text-gray-700 font-semibold underline">Promociones</a>
                     </li>
                     @endcan
                     @can('users.index')

@@ -10,7 +10,7 @@
         <input type="text" name="name" value="{{ $user->name }}" class="border-2 border-gray-400 rounded mb-2">
         
         <label class="mx-4">Referencia</label>
-        <input type="text" name="name" value="" class="border-2 border-gray-400 rounded mb-2">
+        <input type="text" name="" value="" class="border-2 border-gray-400 rounded mb-2">
 
         <label class="mx-4">E-mail</label>
         <input type="text" name="email" value="{{ $user->email }}" class="border-2 border-gray-400 rounded mb-2">

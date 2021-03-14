@@ -16,12 +16,12 @@ class PageController extends Controller
 
     public function routing()
     {
+    // $month = date("n");
+    // $sells = sells::join('users', 'users.id', '=', 'sells.user_id')
+    //     ->whereMonth('fecha', $month)
+    //     ->select('users.name','sells.fecha', 'sells.cantidad', 'sells.user_id')
+    //     ->get();
 
-    $sells = sells::join('users', 'users.id', '=', 'sells.user_id')
-        //->where('fecha', $date)
-        ->select('users.name','sells.fecha', 'sells.cantidad', 'sells.user_id')
-        ->get();
-        
     $fecha = date("y-m-j");
 
     $cantidadA = Sells::where('fecha', $fecha)
@@ -51,12 +51,16 @@ class PageController extends Controller
             'sumasH' => $sumasH,
             'pagos' => $pagos,
             'fecha' => $fecha,
-            'sells' => $sells
         ]);
     }
     
-    public function routingGuest()
+    public function routingGuest($id)
     {
-        return view('guest.routingGuest');
+        $sells = sells::join('users', 'users.id', '=', 'sells.user_id')
+            ->where('user_id', $id)
+            ->select('users.name','sells.fecha', 'sells.cantidad', 'sells.user_id')
+            ->get();
+
+        return view('guest.routingGuest', compact('sells'));
     }
 }

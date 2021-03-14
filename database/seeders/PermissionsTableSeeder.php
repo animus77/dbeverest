@@ -44,6 +44,13 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'supplies.edit']);
         Permission::create(['name' => 'supplies.destroy']);
         
+        //declarcion permisos promociones
+        Permission::create(['name' => 'promotions.index']);
+        Permission::create(['name' => 'promotions.show']);
+        Permission::create(['name' => 'promotions.create']);
+        Permission::create(['name' => 'promotions.edit']);
+        Permission::create(['name' => 'promotions.destroy']);
+        
         //permiso de vista para route y routing 
         Permission::create(['name' => 'route']);
         Permission::create(['name' => 'routing']);
@@ -72,14 +79,21 @@ class PermissionsTableSeeder extends Seeder
             'supplies.show',
             'supplies.create',
             'supplies.destroy',
+            'promotions.index',
+            'promotions.edit',
+            'promotions.show',
+            'promotions.create',
+            'promotions.destroy',
+            //26, invitado
             'route',
+            //27
             'routing'
         ]);
 
         $guest->givePermissionTo([
             'sells.index',
             'sells.show',
-            'routing'
+            'route'
         ]);
 
         $user = User::find(1);
