@@ -5,6 +5,7 @@
     <ol class="p-2">
         <li>Nombre: <strong>{{ $users->name }}</strong></li>
         <li>Saldo actual: <strong>${{ $clientDebt }}</strong></li>
+        <li>Puntos: <strong>{{ $coins }}</strong></li>
 
     </ol>
 </section>

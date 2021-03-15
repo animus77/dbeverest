@@ -34,13 +34,15 @@ class SellsController extends Controller
             ->sum('impPagado');
         
         $pagos = Sells::where('fecha', $date)
-        ->where('producto', 'pago')
-        ->sum('impPagado');
+            ->where('producto', 'pago')
+            ->sum('impPagado');
 
-        $sells = sells::join('users', 'users.id', '=', 'sells.user_id')
-            ->where('fecha', $date)
-            ->select('users.name','sells.fecha', 'sells.cantidad', 'sells.user_id', 'sells.producto', 'sells.impPagado')
-            ->get();
+        // $sells = sells::join('users', 'users.id', '=', 'sells.user_id')
+        //     ->where('fecha', $date)
+        //     ->select('users.name','sells.fecha', 'sells.cantidad', 'sells.user_id', 'sells.producto', 'sells.impPagado', 'users.id')
+        //     ->get();
+
+        $sells = Sells::with('user')->where('fecha', $date)->get();
 
         return view('sells.payments', [
             'sells' => $sells,
@@ -101,10 +103,9 @@ class SellsController extends Controller
         $date = $request->month;
         $users = User::get();
 
-        $months = sells::join('users', 'users.id', '=', 'sells.user_id')
+        $months = Sells::with('user')
             ->whereMonth('fecha', $date)
-            ->select('users.name', 'users.id', 'sells.fecha', 'sells.dia','sells.cantidad', 'sells.user_id')
-            ->orderBy('dia', 'asc')
+            ->orderBy('user_id', 'asc')
             ->get();
         
         $lasts = sells::latest('fecha')->with('user')->take(1)->get();
@@ -120,6 +121,7 @@ class SellsController extends Controller
      */
     public function edit(Sells $sell)
     {
+        // $sells = Sells::where('user_id', $id)->get(); 
         return view('sells.edit', compact('sell'));
     }
 
@@ -130,9 +132,11 @@ class SellsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(sellsRequest $request, Sells $sell)
     {
+        $sell->update($request->all());
 
+        return back()->with('info', 'actualizado con exito');
     }
 
     /**

@@ -65,4 +65,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sells::class);
     }
+
+    public function getGetNameAttribute()
+    {
+        return $this->name;
+    }
 }

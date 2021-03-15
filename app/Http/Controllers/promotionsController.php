@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Promotions;
+use App\Http\Requests\promotionRequest;
 use Illuminate\Support\Facades\Storage;
 
 class promotionsController extends Controller

@@ -63,13 +63,12 @@ class UserController extends Controller
             ->orderBy('fecha', 'asc')
             ->get();
 
-        $moneys = Sells::where('user_id', $id)
-            ->select('cantidad', 'impPagado', 'impDebe', 'fecha', 'dia')
-            ->get();
+        $coins = Sells::where('user_id', $id)
+            ->sum('cantidad');
         
         $users = User::find($id);
 
-        return view('admin.balance', compact('balances', 'users', 'clientDebt','paid', 'debt'));    
+        return view('admin.balance', compact('balances', 'users', 'clientDebt','paid', 'coins'));    
     }
 
     /**

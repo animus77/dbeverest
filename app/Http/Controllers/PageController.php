@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sells;
 use App\Models\User;
-
+use App\Models\promotions;
 
 class PageController extends Controller
 {
@@ -56,11 +56,18 @@ class PageController extends Controller
     
     public function routingGuest($id)
     {
-        $sells = sells::join('users', 'users.id', '=', 'sells.user_id')
+        $promotions = promotions::orderBy('precio_adq', 'asc')->get();
+
+        $sells = Sells::with('user')
             ->where('user_id', $id)
-            ->select('users.name','sells.fecha', 'sells.cantidad', 'sells.user_id')
+            ->latest()
+            ->limit(15)
             ->get();
 
-        return view('guest.routingGuest', compact('sells'));
+        $coins = Sells::with('user')
+            ->where('user_id', $id)
+            ->sum('cantidad');
+
+        return view('guest.routingGuest', compact('sells', 'coins', 'promotions'));
     }
 }

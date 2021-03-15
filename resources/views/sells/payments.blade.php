@@ -11,20 +11,23 @@
 <section class="bg-white shadow rounded-md p-2 m-4 overflow-x-auto">
     <table class="mx-auto table-fixed">
         <thead>
-            <tr class="border-b-2 border-gray-400">
-                <th class="p-2 w-1/4">Nombre</th>
-                <th class="p-2 w-1/4">Cant.</th>
-                <th class="p-2 w-1/4">Producto</th>
-                <th class="p-2 w-1/4">Pagado</th>
+            <tr class="border-b-2 border-gray-400 text-sm">
+                <th class="p-2 w-1/5">Nombre</th>
+                <th class="p-2 w-1/5">Cant.</th>
+                <th class="p-2 w-1/5">Producto</th>
+                <th class="p-2 w-1/5">Pagado</th>
+                <th class="p-2 w-1/5" colspan="2">&nbsp;</th>
             </tr>
         </thead>
         <tbody>
             @foreach($sells as $sell)
-            <tr class="border-b border-gray-400">
-                <td>{{ $sell->name }}</td>
+            <tr class="border-b border-gray-400 text-sm">
+                <td>{{ $sell->user->name }}</td>
                 <td class="text-center">{{ $sell->cantidad }}</td>
                 <td class="text-center">{{ $sell->producto }}</td>
                 <td class="text-center">{{ $sell->impPagado }}</td>
+                <td class="text-center"><a href="{{ route('sells.edit', $sell) }}" class="bg-gray-400 border-2 border-gray-600 rounded w-20 h-8">Editar</a></td>
+                <td class="text-center"><a href="#" class="bg-gray-400 border-2 border-gray-600 rounded w-20 h-8">Eliminar</a></td>
             </tr>
             @endforeach
         </tbody>

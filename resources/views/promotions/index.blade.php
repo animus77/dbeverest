@@ -17,7 +17,9 @@
             @can('promotions.edit')
             <p class="text-sm text-right py-2"><a href="{{ route('promotions.edit', $promotion) }}">Editar</a></p>
             @endcan
+            @can('promotions.destroy')
             <p class="text-sm text-right"><a href="#">Eliminar</a></p>
+            @endcan
         </div>
     </section>
     @endforeach

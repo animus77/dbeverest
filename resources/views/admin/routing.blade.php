@@ -5,7 +5,7 @@
         <h1 class="text-xl text-center bg-gray-400 rounded-t-md p-1">Opciones de venta</h1>
         <ol class="p-2">
             <li class="py-2">
-                <a href="{{ route('sells.create') }}" >Nuero registro de venta</a>
+                <a href="{{ route('sells.create') }}" >Nuevo registro de venta</a>
             </li>
             <li class="py-2">
                 <a href="{{ route('sells.index') }}" >Consulta de venta diaria</a>

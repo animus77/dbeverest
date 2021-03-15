@@ -9,6 +9,7 @@ use App\Http\Controllers\SuppliesController;
 use App\Http\Controllers\PromotionsController;
 
 use App\Models\sells;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,15 @@ Route::get('testing', function(){
     var_dump(strval($print));
 });
 
+Route::get('users1', function(){
+    $ventas = Sells::with('user')->where('fecha', '21-03-12')->get();
+
+    return view('admin.testingview', compact('ventas'));
+    // foreach($ventas as $venta){
+        
+    //     echo "$venta->user_id {$venta->user->get_name}<br>";
+    // }
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
