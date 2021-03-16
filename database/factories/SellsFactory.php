@@ -22,7 +22,7 @@ class SellsFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => rand(1,60),
+            'user_id' => rand(1,50),
             'fecha' => now(),
             'dia' => rand(1,31),
             'cantidad' => rand(1,10),

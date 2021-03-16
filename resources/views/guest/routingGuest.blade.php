@@ -2,7 +2,7 @@
 @section('content')
 <section class="bg-white shadow rounded-md p-2 m-4 grid sm:grid-cols-1 md:grid-cols-2">
 <div>
-    <h1 class="text-xl">Puntos disponibles: <strong>{{ $coins }}</strong></h1>
+    <h1 class="text-xl my-2">Puntos disponibles: <strong>{{ $coins }}</strong></h1>
     <table class="mx-auto">
         <thead>
             <tr class="border-b-2 border-gray-400">
@@ -23,9 +23,9 @@
     </table>
 </div>
 <div>
-<h1 class="text-center text-xl my-2">Productos disponibles con sus puntos</h1>
+<h1 class="text-center text-xl my-4">Productos disponibles con sus puntos</h1>
     @foreach($promotions as $promotion)
-        @if($coins >= $promotion->precio_adq)
+        @if($coins >= $promotion->precio_puntos)
             <section class="bg-white shadow-md w-60 mx-auto my-4">
                 @if($promotion->image)
                 <img src="{{ $promotion->get_image }}" alt="" class="">
@@ -36,7 +36,7 @@
                 <div class="p-1 m-2">
                     <p class="text-base">{{ $promotion->descripcion }}<p>
                     <p class="text-sm">Precio de venta: ${{ $promotion->precio_venta }}</p>
-                    <p class="text-sm">Precio en puntos: {{ $promotion->precio_adq }}</p>
+                    <p class="text-sm">Precio en puntos: {{ $promotion->precio_puntos }}</p>
                     @can('promotions.edit')
                     <p class="text-sm text-right py-2"><a href="{{ route('promotions.edit', $promotion) }}">Editar</a></p>
                     @endcan

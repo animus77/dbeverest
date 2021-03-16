@@ -10,6 +10,6 @@ class supplies extends Model
     use HasFactory;
     
     protected $fillable = [
-        'fecha', 'producto', 'unidad', 'precio', 'pza_unidad', 'precio_unidad'
+        'fecha', 'producto', 'importe'
     ];
 }

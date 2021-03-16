@@ -43,7 +43,7 @@ class promotionsController extends Controller
             'descripcion' => $request->description,
             'precio_adq' => $request->pricebuy,
             'precio_venta'=> $request->pricesell,
-            'precio_puntos'=> $request->pointsell
+            'precio_puntos'=> $request->coins
         ]);
 
         if($request->file('file')){

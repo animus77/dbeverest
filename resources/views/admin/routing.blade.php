@@ -4,22 +4,32 @@
     <section class="bg-white shadow rounded-md">
         <h1 class="text-xl text-center bg-gray-400 rounded-t-md p-1">Opciones de venta</h1>
         <ol class="p-2">
+        @can('sells.create')
             <li class="py-2">
                 <a href="{{ route('sells.create') }}" >Nuevo registro de venta</a>
             </li>
+        @endcan
+        @can('sells.index')
             <li class="py-2">
                 <a href="{{ route('sells.index') }}" >Consulta de venta diaria</a>
             </li>
+        @endcan
+        @can('sells.show')
             <li class="py-2">
                 <a href="{{ route('sells.show') }}" >Consulta de venta mensual</a>
             </li>
+        @endcan
         </ol>
     </section>
     <section class="bg-white shadow rounded-md">
         <h1 class="text-xl text-center bg-gray-400 rounded-t-md p-1">Opciones de compra</h1>
         <ol class="p-2">
-            <li class="py-2"><a href="{{ route('supplies.index') }}" class="hover:underline">Gastos realizados</a></li>
-            <li class="py-2"><a href="#" class="hover:underline">Consulta compras diarias</a></li>
+            @can('supplies.create')
+            <li class="py-2"><a href="{{ route('supplies.create') }}" class="hover:underline">Nuevo registro</a></li>
+            @endcan
+            @can('supplies.index')
+            <li class="py-2"><a href="{{ route('supplies.index') }}" class="hover:underline">Consulta de gastos</a></li>
+            @endcan
         </ol>
     </section>
     <section class="bg-white shadow rounded-md">
@@ -36,8 +46,12 @@
     <section class="bg-white shadow rounded-md">
         <h1 class="text-xl text-center bg-gray-400 rounded-t-md p-1">Promociones</h1>
         <ol class="p-2">
+            @can('promotions.index')
             <li class="py-2"><a href="{{ route('promotions.index') }}">Consultar promociones</a></li>
+            @endcan
+            @can('promotions.create')
             <li class="py-2"><a href="{{ route('promotions.create') }}">Crear nueva promocion</a></li>
+            @endcan
         </ol>
     </section>
 </div>

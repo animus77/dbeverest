@@ -26,7 +26,7 @@
         <tbody>
         @foreach($users as $user)
             <tr class="border-b border-gray-400">
-                <td class="text-xs" rowspan="2">{{$user->name}}</td>
+                <td class="text-xs" rowspan="2">{{$user->ref}}</td>
                 @foreach($months as $month)
                     @if(($user->id == $month->user_id))
                         <th class="text-center text-xs p-1">{{ $month->dia }}</th>

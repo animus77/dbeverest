@@ -35,10 +35,9 @@
                     </li>
                     @endcan
                     <li class="py-1">
-                        <a href="{{ route('home') }}" class="ml-4 text-xl text-gray-700 font-semibold underline">Regresar</a>
+                        <a href="{{ route('condiciones') }}" class="ml-4 text-xl text-gray-700 font-semibold underline">Condiciones</a>
                     </li>
                 </ul>
-
                 <p class="mx-4">Para poder acceder a sus funcionalidades por favor comuniquese con el administrador a nuestros numeros de contacto</p>
             </div>
         </div>

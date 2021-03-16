@@ -14,13 +14,13 @@ class PageController extends Controller
         return view('index');
     }
 
+    public function condiciones()
+    {
+        return view('condiciones');
+    }
+
     public function routing()
     {
-    // $month = date("n");
-    // $sells = sells::join('users', 'users.id', '=', 'sells.user_id')
-    //     ->whereMonth('fecha', $month)
-    //     ->select('users.name','sells.fecha', 'sells.cantidad', 'sells.user_id')
-    //     ->get();
 
     $fecha = date("y-m-j");
 

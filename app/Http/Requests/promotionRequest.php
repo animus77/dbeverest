@@ -28,7 +28,7 @@ class promotionRequest extends FormRequest
             'description' => 'required',
             'pricebuy' => 'required',
             'pricesell' => 'required',
-            'pointsell' => 'required',
+            'coins' => 'required',
 
         ];
     }

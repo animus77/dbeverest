@@ -23,6 +23,7 @@ use App\Models\User;
 */
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('condiciones', [PageController::class, 'condiciones'])->name('condiciones');
 
 Route::get('testing', function(){
 

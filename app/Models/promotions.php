@@ -10,7 +10,7 @@ class promotions extends Model
     use HasFactory;
 
     protected $fillable = [
-        'titulo', 'image', 'descripcion', 'precio_adq', 'precio_venta'
+        'titulo', 'image', 'descripcion', 'precio_adq', 'precio_venta', 'precio_puntos'
     ];
 
     public function getGetImageAttribute()

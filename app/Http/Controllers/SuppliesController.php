@@ -14,7 +14,7 @@ class SuppliesController extends Controller
      */
     public function index()
     {
-        $supplies = Supplies::all();
+        $supplies = Supplies::latest()->limit(10)->get();
 
         return view('supplies.index', [
             'supplies' => $supplies,
@@ -28,10 +28,7 @@ class SuppliesController extends Controller
      */
     public function create()
     {
-        // $users = User::all();
-
-        // return view('sells.newPayment', [
-        //     'users' => $users]);
+        return view('supplies.create');
     }
 
     /**
@@ -45,15 +42,13 @@ class SuppliesController extends Controller
         $request->validate([
             'fecha' => ['required', 'date'],
             'producto' => ['required', 'string'],
-            'unidad' => ['required', 'numeric'],
-            'precio' => ['required', 'numeric']
+            'importe' => ['required', 'numeric'],
         ]);
 
         Supplies::create([
             'fecha' => $request->fecha,
             'producto' => $request->producto,
-            'precio' => $request->precio,
-            'unidad' => $request->unidad
+            'importe' => $request->importe,
         ]);
 
         return back()->with('info', 'Guardado con exito');

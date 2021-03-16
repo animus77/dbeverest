@@ -16,7 +16,7 @@
         <input type="number" name="pricesell" placeholder="Precio de venta" class="border-2 border-gray-400 rounded mb-2">
         
         <label for="" class="mx-4">Precio en puntos</label>
-        <input type="number" name="pointsell" placeholder="Precio en puntos" class="border-2 border-gray-400 rounded mb-2">
+        <input type="number" name="coins" placeholder="Precio en puntos" class="border-2 border-gray-400 rounded mb-2">
         
         <label for="" class="mx-4">Imagen</label>
         <input type="file" name="file">

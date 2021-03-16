@@ -13,7 +13,7 @@
             <p class="text-base">{{ $promotion->descripcion }}<p>
             <p class="text-sm">Precio de compra: ${{ $promotion->precio_adq }}</p>
             <p class="text-sm">Precio de venta: ${{ $promotion->precio_venta }}</p>
-            <p class="text-sm">Precio en puntos: {{ $promotion->precio_adq }}</p>
+            <p class="text-sm">Precio en puntos: {{ $promotion->precio_puntos }}</p>
             @can('promotions.edit')
             <p class="text-sm text-right py-2"><a href="{{ route('promotions.edit', $promotion) }}">Editar</a></p>
             @endcan

@@ -1,44 +1,25 @@
 @extends('layouts.header')
 @section('content')
-<div class="container">
-    <h1 class="text-xl text-center py-2">Gastos realizados</h1>
-    <form action="{{ route('supplies.store') }}" method="POST" class="flex flex-col">
-        <label for="" class="mx-4">Fecha</label>
-        <input type="date" class="mx-4" name="fecha">
-
-        <label for="" class="mx-4">Producto</label>
-        <input type="text" class="mx-4" name="producto">
-
-        <label for="" class="mx-4">Unidad</label>
-        <input type="text" class="mx-4" name="unidad">
-
-        <label for="" class="mx-4">Precio</label>
-        <input type="number" class="mx-4" name="precio">
-
-        @csrf
-        <input type="submit" class="w-24 border-2 border-blue-600 rounded-md ml-4" value="Guardar">
-
-    </form>
-    <table>
+<section class="bg-white shadow rounded-md p-2 m-4 overflow-x-auto">
+    <table class="mx-auto table-auto">
         <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Producto</th>
-                <th>Unidad</th>
-                <th>Precio</th>
+            <tr class="border-b-2 border-gray-400">
+                <th class="p-2">Id</th>
+                <th class="p-2">Fecha</th>
+                <th class="p-2">Producto</th>
+                <th class="p-2">Importe</th>
             </tr>
         </thead>
         <tbody>
             @foreach($supplies as $supplie)
-            <tr class="text-left">
+            <tr>
+                <td>{{ $supplie->id }}</td>
                 <td>{{ $supplie->fecha }}</td>
-                <td>{{ $supplie->producto }}</td>
-                <td>{{ $supplie->unidad }}</td>
-                <td>{{ $supplie->precio }}</td>
+                <td class="text-center">{{ $supplie->producto }}</td>
+                <td class="text-center">${{ $supplie->importe }}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
-
-</div>
+</section>
 @endsection()

@@ -17,10 +17,7 @@ class CreateSuppliesTable extends Migration
             $table->id();
             $table->date('fecha');
             $table->string('producto');
-            $table->string('unidad');
-            $table->integer('precio');
-            $table->integer('pza_unidad');
-            $table->integer('precio_unidad');
+            $table->integer('importe');
             $table->timestamps();
         });
     }
