@@ -1,7 +1,7 @@
 @extends('layouts.header')
 @section('content')
 <section class="bg-white shadow rounded-md pb-2 m-4">
-    <h1 class="text-xl text-center bg-gray-400 rounded-t-md p-1">Terminos y condiciones</h1>
+    <h1 class="text-xl text-center bg-gray-400 rounded-t-md p-1">Referencias</h1>
     <p>Para poder hacer validas las promociones que hielos everest le ofrece, a continuacion 
     enlistamos los terminos y condiciones </p>
     <h1 class="text-center">Terminos</h1>
